@@ -130,7 +130,7 @@ const AdminMainLayout: React.FC<any> = ({ children, role }) => {
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Nhóm 11 ©{new Date().getFullYear()} Created by Nhóm 11 - 21CN5
+                    VietAnh ©{new Date().getFullYear()} Created by VietAnh - 21CN5
                 </Footer>
             </Layout>
         </Layout>

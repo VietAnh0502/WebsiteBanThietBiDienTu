@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Layout, Row, Col, Typography, Button, Space, Card } from "antd";
 import { FacebookOutlined, YoutubeOutlined, TikTokOutlined } from "@ant-design/icons";
 import "./footer.css"; // Import file CSS
@@ -9,6 +9,44 @@ const { Title, Text, Link } = Typography;
 
 const App: React.FC = () => {
   const router = useRouter()
+  const [storeStatus, setStoreStatus] = useState<{status: string, type: "success" | "danger"}[]>([]);
+
+  // Hàm kiểm tra trạng thái cửa hàng
+  const checkStoreStatus = () => {
+    // Lấy thời gian hiện tại theo múi giờ Việt Nam
+    const now = new Date();
+    const vietnamTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"}));
+    const currentHour = vietnamTime.getHours();
+    
+    // Giờ mở cửa: 9h - 22h
+    const isOpen = currentHour >= 9 && currentHour < 22;
+    
+    if (isOpen) {
+      return {status: "Mở cửa", type: "success" as const};
+    } else {
+      return {status: `Đã đóng cửa, hẹn bạn 09:00`, type: "danger" as const};
+    }
+  };
+
+  useEffect(() => {
+    // Cập nhật trạng thái ban đầu
+    const status1 = checkStoreStatus();
+    const status2 = checkStoreStatus();
+    const status3 = checkStoreStatus();
+    
+    setStoreStatus([status1, status2, status3]);
+    
+    // Cập nhật mỗi phút
+    const interval = setInterval(() => {
+      const status1 = checkStoreStatus();
+      const status2 = checkStoreStatus();
+      const status3 = checkStoreStatus();
+      
+      setStoreStatus([status1, status2, status3]);
+    }, 60000); // Cập nhật mỗi phút
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -27,7 +65,7 @@ const App: React.FC = () => {
                   <br />
                   Số 5 - 7 Nguyễn Huy Tưởng, F6, Q. Bình Thạnh
                   <br />
-                  <Text type="danger">Đã đóng cửa, hẹn bạn 09:00</Text>
+                  <Text type={storeStatus[0]?.type || "danger"}>{storeStatus[0]?.status || "Đã đóng cửa, hẹn bạn 09:00"}</Text>
                   <br />
                   09:00 - 21:00
                 </Text>
@@ -40,7 +78,7 @@ const App: React.FC = () => {
                   <br />
                   95 Trần Thiện Chánh, Q10
                   <br />
-                  <Text type="danger">Đã đóng cửa, hẹn bạn 09:00</Text>
+                  <Text type={storeStatus[1]?.type || "danger"}>{storeStatus[1]?.status || "Đã đóng cửa, hẹn bạn 09:00"}</Text>
                   <br />
                   09:00 - 21:00
                 </Text>
@@ -53,7 +91,7 @@ const App: React.FC = () => {
                   <br />
                   53 Thái Hà, Đống Đa
                   <br />
-                  <Text type="success">Mở cửa</Text>
+                  <Text type={storeStatus[2]?.type || "success"}>{storeStatus[2]?.status || "Mở cửa"}</Text>
                   <br />
                   09:00 - 22:00
                 </Text>
@@ -154,7 +192,7 @@ const App: React.FC = () => {
         </Col>
         {/* Footer */}
         <div className="footerContent" style={{ textAlign: "center", width: "100%" }}>
-          <Text>© ThinkPro 2024 - CREATE BY NHÓM 11 </Text>
+          <Text>© Think 2025 - CREATE BY VIETANH</Text>
         </div>
       </Row>
     </>

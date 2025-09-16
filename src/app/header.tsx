@@ -423,7 +423,7 @@ const HeaderPage = () => {
               <Form form={form}>
                 <Form.Item
                   name="search"
-                  style={{ width: 350 }}
+                  style={{ width: 300 }}
                 >
                   <Search
                     size='large'
@@ -581,7 +581,7 @@ const HeaderPage = () => {
                   }
                 }
               }}>
-              <Button style={{ marginLeft: '40px', fontWeight: 600, border: 'transparent' }} onClick={() => router.push('https://www.facebook.com/tran.son.387612')}>
+              <Button style={{ marginLeft: '40px', fontWeight: 600, border: 'transparent' }} onClick={() => router.push('https://www.facebook.com/iwnaksu')}>
                 <img src="/icon/online-support.png" alt="" style={{ width: 21 }} />Hỗ trợ trực tuyến
               </Button>
             </ConfigProvider>
@@ -641,6 +641,7 @@ const HeaderPage = () => {
             display: 'flex',
             height: '80px',
             alignItems: 'center',
+            justifyContent: 'center',
             maxWidth: '1200px',
             margin: '0 auto',
           }}

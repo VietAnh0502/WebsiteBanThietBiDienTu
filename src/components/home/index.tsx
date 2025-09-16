@@ -243,7 +243,7 @@ const App: React.FC = () => {
                 }}
               >
                 <CheckCircleFilled style={{ marginTop: '10px', fontSize: '23px', color: 'rgb(59 179 70)' }} />
-                <span style={{ fontSize: '12px', fontWeight: 400, marginTop: '8px' }}>Thành viên thuộc Group 11. Made with love</span> {/* Thêm khoảng cách giữa icon và text */}
+                <span style={{ fontSize: '12px', fontWeight: 400, marginTop: '8px' }}>VietAnh. Made with love</span> {/* Thêm khoảng cách giữa icon và text */}
               </div>
             </Col>
           </Row>

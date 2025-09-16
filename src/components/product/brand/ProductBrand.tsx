@@ -217,7 +217,7 @@ const ProductBrand: React.FC<LaptopPageProps> = ({ id }) => {
         <Spin size="large" />
       ) : (
         <>
-          <Row gutter={[16, 16]} style={{ width: '1200px', marginBottom: '3rem' }}>
+          <Row gutter={[16, 16]} style={{ width: '1200px' }}>
             {productData.slice(0, visibleItems).map((product) => (
               <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
                 <Card

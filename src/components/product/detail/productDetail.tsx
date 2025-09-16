@@ -274,7 +274,7 @@ const ProductDetail: React.FC<any> = ({ id }) => {
         
         {similarProducts.length > 0 ? (
           <>
-            <Row gutter={[16, 16]} style={{ width: '1200px', marginBottom: '3rem' }}>
+            <Row gutter={[16, 16]} style={{ width: '1200px' }}>
               {similarProducts.slice(0, visibleItems).map((product: any) => (
                 <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
                   <Card
@@ -347,7 +347,7 @@ const ProductDetail: React.FC<any> = ({ id }) => {
             )}
           </>
         ) : (
-          <Card style={{ marginBottom: '3rem' }}>
+          <Card style={{ }}>
             <Empty
               description={
                 <Text style={{ fontSize: '16px', color: '#8c8c8c' }}>

@@ -263,7 +263,6 @@ const ProductCategory: React.FC<LaptopPageProps> = ({ id }) => {
             screenWidth < 576 ? 8 : 16
           ]} style={{ 
             width: '100%', 
-            marginBottom: '3rem',
             padding: '0 10px'
           }}>
             {productData.slice(0, visibleItems).map((product) => (

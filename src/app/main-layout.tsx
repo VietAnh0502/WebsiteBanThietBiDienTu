@@ -56,7 +56,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         <HeaderPage />
                         <Layout>
                             <Content>
-                                <div style={{margin:'0 15%'}}>
+                                <div style={{margin:'0 auto', width: 1200}}>
                                 {/* phàn tử con render sau layout */}
                                 {children}
                                 {/* phàn tử con render sau layout */}
